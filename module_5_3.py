@@ -56,6 +56,10 @@ class House:
             self.number_of_floors += value
             return self
 
+    def __radd__(self, value):
+        if isinstance(value, int):
+            self.number_of_floors += value
+            return self
 
 
 a = House('ЖК Эльбрус', 30)
@@ -64,6 +68,10 @@ b = House('Мегаполис парк', 9)
 print(a == b)
 
 a += 10
+
+print(a)
+
+a = 10 + a
 
 print(a)
 
