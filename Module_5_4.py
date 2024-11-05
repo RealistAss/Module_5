@@ -1,16 +1,14 @@
 class House:
-
-    def __new__(cls,*args):
-        print(args)
+    house_history = []
+    def __new__(cls,*args, **kwargs):
+        cls.house_history.append(args[0])
         return object.__new__(cls)
 
 
 
 
 
-    def __init__(self, name, number_of_floors,house_history):
-        self.house_history = []
-
+    def __init__(self, name, number_of_floors):
         self.name = name
         self.number_of_floors = number_of_floors
         self.new_floor = None
@@ -68,8 +66,18 @@ class House:
             self.number_of_floors += value
             return self
 
+    def __radd__(self, value):
+        if isinstance(value, int):
+            self.number_of_floors += value
+            return self
 
+    def __del__(self):
+        print(f'{self.name} снесён, но он останется в истории')
 
 
 a = House('ЖК Эльбрус', 30)
+print(House.house_history)
 b = House('Мегаполис парк', 9)
+print(House.house_history)
+del b
+print(House.house_history)
