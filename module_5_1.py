@@ -12,7 +12,13 @@ class House:
                 print(i)
         else:
             print('Такого этажа не существует')
+    def __len__(self):
+        return self.number_of_floors
+    def __str__(self):
+        return (f'Название: {self.name}, кол-во этажей: {self.number_of_floors}')
 
 
 a = House('ЖК Эльбрус', 30)
-a.go_to(21)
+
+print(len(a))
+print(str(a))
