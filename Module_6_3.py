@@ -5,7 +5,7 @@ class Animal:
     sound = None
     _DEGREE_OF_DANGER = 0
 
-    def __init__(self, _cords, speed):
+    def __init__(self, speed):
         self._cords = [0, 0, 0]
         self.speed = speed
 
@@ -48,7 +48,7 @@ class Duckbill(Bird, AquaticAnimal, PoisonousAnimal):
 
     sound = "Click-click-click"
 
-db = Duckbill(10, 2)
+db = Duckbill(10)
 
 print(db.live)
 print(db.beak)
